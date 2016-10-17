@@ -1,0 +1,22 @@
+mysql> select * from AddressBook;
++----+-----------+----------------+---------------------+------------+
+| id | accountId | name           | createdOn           | modifiedOn |
++----+-----------+----------------+---------------------+------------+
+|  1 |      1234 | jimbo williams | 1995-04-12 11:15:22 | NULL       |
++----+-----------+----------------+---------------------+------------+
+1 row in set (0.00 sec)
+
+mysql> update AddressBook set createdOn = 
+    -> "2015-02-03 23-59-54";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from AddressBook;
++----+-----------+----------------+---------------------+------------+
+| id | accountId | name           | createdOn           | modifiedOn |
++----+-----------+----------------+---------------------+------------+
+|  1 |      1234 | jimbo williams | 2015-02-03 23:59:54 | NULL       |
++----+-----------+----------------+---------------------+------------+
+1 row in set (0.00 sec)
+
+mysql> 
