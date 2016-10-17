@@ -1,0 +1,77 @@
+mysql> select * from Account;
++----+-------------+----------+---------------------+------------+
+| id | email       | password | createdOn           | modifiedOn |
++----+-------------+----------+---------------------+------------+
+|  1 | zzzz@xyz.ca | zzzz1111 | 2014-11-13 23:03:22 | NULL       |
++----+-------------+----------+---------------------+------------+
+1 row in set (0.00 sec)
+
+mysql> update Account set password = "aaabbbccc";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Account;
++----+-------------+-----------+---------------------+------------+
+| id | email       | password  | createdOn           | modifiedOn |
++----+-------------+-----------+---------------------+------------+
+|  1 | zzzz@xyz.ca | aaabbbccc | 2014-11-13 23:03:22 | NULL       |
++----+-------------+-----------+---------------------+------------+
+1 row in set (0.00 sec)
+
+mysql> 
+
+
+
+mysql> select * from AddressBook;
++----+-----------+----------------+---------------------+------------+
+| id | accountId | name           | createdOn           | modifiedOn |
++----+-----------+----------------+---------------------+------------+
+|  1 |      1234 | jimbo williams | 1995-04-12 11:15:22 | NULL       |
++----+-----------+----------------+---------------------+------------+
+1 row in set (0.00 sec)
+
+mysql> update AddressBook set createdOn = 
+    -> "2015-02-03 23-59-54";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from AddressBook;
++----+-----------+----------------+---------------------+------------+
+| id | accountId | name           | createdOn           | modifiedOn |
++----+-----------+----------------+---------------------+------------+
+|  1 |      1234 | jimbo williams | 2015-02-03 23:59:54 | NULL       |
++----+-----------+----------------+---------------------+------------+
+1 row in set (0.00 sec)
+
+mysql> 
+
+
+
+
+
+
+mysql> select * from Entry;
++----+---------------+-----------+----------+---------------------+-------+---------+----------------+----------------+------------------+-----------------+-----------------+
+| id | addressBookId | firstName | lastName | birthday            | type  | subtype | contentLineOne | contentLineTwo | contentLineThree | contentLineFour | contentLineFive |
++----+---------------+-----------+----------+---------------------+-------+---------+----------------+----------------+------------------+-----------------+-----------------+
+|  1 |          1234 | Jimbo     | jones    | 1967-12-01 22:20:23 | home  | phone   |                | NULL           | NULL             | NULL            | NULL            |
+|  2 |          7843 | Slimo     | Killa    | 1944-04-11 04:20:23 | work  | phone   |                | NULL           | NULL             | NULL            | NULL            |
+|  3 |          4444 | Gregor    | Borschte | 1988-04-23 03:40:23 | other | phone   |                | NULL           | NULL             | NULL            | NULL            |
++----+---------------+-----------+----------+---------------------+-------+---------+----------------+----------------+------------------+-----------------+-----------------+
+3 rows in set (0.00 sec)
+
+mysql> update Entry set contentLineFive = "the end";
+Query OK, 3 rows affected (0.01 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> select * from Entry;
++----+---------------+-----------+----------+---------------------+-------+---------+----------------+----------------+------------------+-----------------+-----------------+
+| id | addressBookId | firstName | lastName | birthday            | type  | subtype | contentLineOne | contentLineTwo | contentLineThree | contentLineFour | contentLineFive |
++----+---------------+-----------+----------+---------------------+-------+---------+----------------+----------------+------------------+-----------------+-----------------+
+|  1 |          1234 | Jimbo     | jones    | 1967-12-01 22:20:23 | home  | phone   |                | NULL           | NULL             | NULL            | the end         |
+|  2 |          7843 | Slimo     | Killa    | 1944-04-11 04:20:23 | work  | phone   |                | NULL           | NULL             | NULL            | the end         |
+|  3 |          4444 | Gregor    | Borschte | 1988-04-23 03:40:23 | other | phone   |                | NULL           | NULL             | NULL            | the end         |
++----+---------------+-----------+----------+---------------------+-------+---------+----------------+----------------+------------------+-----------------+-----------------+
+3 rows in set (0.00 sec)
+
+mysql> 
